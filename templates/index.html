@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css" />
+    <title>Grab Feedback</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <img src="https://cdn.freebiesupply.com/logos/large/2x/grab-logo-black-and-white.png" class="logo" alt="grab_logo" />
+        <h1>Thank you for riding with us!</h1>
+
+        <!--@todo - message-->
+        {% if message %}
+        <p class="message">{{ message | safe }}</p>
+        {% endif %}
+
+        <form action="/submit" method="POST">
+                
+            <!--Client Name-->
+            <h3>Please enter your name: </h3>
+            <div class="form-group">                
+                <input type="text" name="name" placeholder="name"/>
+            </div>    
+
+            <!--Driver Name-->
+            <h3>Please select the driver name: </h3>
+            <div class="form-group">                
+                <select name="driver">
+                    <option value="Hassan">Hassan</option>
+                    <option value="David">David</option>
+                    <option value="Andrew">Andrew</option>
+                    <option value="Victor">Victor</option>
+                </select> 
+            </div>
+
+            <!---Rate driver-->
+            <h3>Please enter your rating: </h3>
+            <div class="form-group">                
+                <input type="radio" name="ratings" value="5" checked /> 5
+                <input type="radio" name="ratings" value="4" /> 4
+                <input type="radio" name="ratings" value="3" /> 3 
+                <input type="radio" name="ratings" value="2" /> 2
+                <input type="radio" name="ratings" value="1" /> 1
+            </div>
+
+            <h3>Please enter your comments (if any)</h3>
+            <div class="form-group">                
+                <textarea name="comments" 
+                cols = "30" 
+                rows = "10"
+                placeholder="Comments"></textarea>
+            </div>
+
+            <input type="submit" value="Submit" class="btn" />
+        </form>        
+    </div>   
+</body>
+</html>
