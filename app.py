@@ -6,7 +6,7 @@ from send_mail import send_mail
 app = Flask(__name__)
 
 # define  debug environment
-ENV = "debug"
+ENV = "production"
 
 if ENV == "debug":
     # get database locally
